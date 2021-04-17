@@ -11,11 +11,23 @@ CONFIG += c++11
 SOURCES += \
     application.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    system/tree/basesys.cpp \
+    system/tree/device.cpp \
+    system/tree/iodevice.cpp \
+    system/tree/port.cpp \
+    system/tree/server.cpp \
+    system/tree/treesysmodel.cpp
 
 HEADERS += \
     application.h \
-    mainwindow.h
+    mainwindow.h \
+    system/tree/basesys.h \
+    system/tree/device.h \
+    system/tree/iodevice.h \
+    system/tree/port.h \
+    system/tree/server.h \
+    system/tree/treesysmodel.h
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

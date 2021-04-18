@@ -12,22 +12,32 @@ SOURCES += \
     application.cpp \
     main.cpp \
     mainwindow.cpp \
-    system/tree/basesys.cpp \
-    system/tree/device.cpp \
-    system/tree/iodevice.cpp \
-    system/tree/port.cpp \
-    system/tree/server.cpp \
-    system/tree/treesysmodel.cpp
+    struct/tree/basesys.cpp \
+    struct/tree/device.cpp \
+    struct/tree/iodevice.cpp \
+    struct/tree/port.cpp \
+    struct/tree/server.cpp \
+    struct/tree/treesysmodel.cpp \
+    widgets/doc/listeventsensor.cpp \
+    widgets/doc/listeventsystem.cpp \
+    widgets/doc/panel.cpp \
+    widgets/doc/treemapsensor.cpp \
+    widgets/doc/treeserverdevice.cpp
 
 HEADERS += \
     application.h \
     mainwindow.h \
-    system/tree/basesys.h \
-    system/tree/device.h \
-    system/tree/iodevice.h \
-    system/tree/port.h \
-    system/tree/server.h \
-    system/tree/treesysmodel.h
+    struct/tree/basesys.h \
+    struct/tree/device.h \
+    struct/tree/iodevice.h \
+    struct/tree/port.h \
+    struct/tree/server.h \
+    struct/tree/treesysmodel.h \
+    widgets/doc/listeventsensor.h \
+    widgets/doc/listeventsystem.h \
+    widgets/doc/panel.h \
+    widgets/doc/treemapsensor.h \
+    widgets/doc/treeserverdevice.h
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

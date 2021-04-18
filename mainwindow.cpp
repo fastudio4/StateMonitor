@@ -6,6 +6,7 @@ MainWindow::MainWindow(QWidget *parent)
 {
     setWindowTitle(tr("State monitor"));
     createDocWidjets(); //Create doc widgets
+    createToolsWidgets(); //Create tools widgets
 }
 
 void MainWindow::createDocWidjets()
@@ -21,6 +22,14 @@ void MainWindow::createDocWidjets()
     addDockWidget(Qt::LeftDockWidgetArea, messageSensorList);
     addDockWidget(Qt::LeftDockWidgetArea, messageSystemList);
     tabifyDockWidget(messageSensorList,messageSystemList);
+}
+
+void MainWindow::createToolsWidgets()
+{
+    statusMessage = new TOOLSWIDGETS::StatusBar(this);
+    baseToolBar = new TOOLSWIDGETS::ToolBarTop(this);
+    addToolBar(baseToolBar);
+    setStatusBar(statusMessage);
 }
 
 MainWindow::~MainWindow()

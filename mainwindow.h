@@ -3,13 +3,10 @@
 
 #include <QMainWindow>
 
-#include "widgets/doc/listeventsensor.h"
-#include "widgets/doc/listeventsystem.h"
-#include "widgets/doc/treemapsensor.h"
-#include "widgets/doc/treeserverdevice.h"
-
+#include "widgets/doc/basedoc.h"
 #include "widgets/tools/statusbar.h"
 #include "widgets/tools/toolbartop.h"
+#include "struct/server_struct/serverconstructor.h"
 
 namespace APP {
 
@@ -25,16 +22,21 @@ private:
     void createDocWidjets();
     void createToolsWidgets();
 
-    /* DocWidjet */
-    DOCWIDGETS::ListEventSensor *messageSensorList;
-    DOCWIDGETS::ListEventSystem *messageSystemList;
-    DOCWIDGETS::TreeMapSensor *treeMapSensor;
-    DOCWIDGETS::TreeServerDevice *treeServerDev;
+    /* DocWidjets Left */
+    DOCWIDGETS::BaseDocWidget *sensorTree, *serverTree,
+    *sensorMessageList, *serverMessageList;
+
 
     /* ToolsWidjet */
 
     TOOLSWIDGETS::StatusBar *statusMessage;
     TOOLSWIDGETS::ToolBarTop *baseToolBar;
+
+    /* Fill model server */
+
+    S_CONSTRUCTOR::ServerConstructor *serverDataModel;
+
+
 
 };
 

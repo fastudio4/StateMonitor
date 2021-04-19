@@ -12,34 +12,30 @@ SOURCES += \
     application.cpp \
     main.cpp \
     mainwindow.cpp \
-    struct/tree/basesys.cpp \
-    struct/tree/device.cpp \
-    struct/tree/iodevice.cpp \
-    struct/tree/port.cpp \
-    struct/tree/server.cpp \
-    struct/treesysmodel.cpp \
-    widgets/doc/listeventsensor.cpp \
-    widgets/doc/listeventsystem.cpp \
-    widgets/doc/panel.cpp \
-    widgets/doc/treemapsensor.cpp \
-    widgets/doc/treeserverdevice.cpp \
+    struct/server_struct/basesys.cpp \
+    struct/server_struct/device.cpp \
+    struct/server_struct/iodevice.cpp \
+    struct/server_struct/port.cpp \
+    struct/server_struct/server.cpp \
+    struct/server_struct/serverconstructor.cpp \
+    struct/treemodel.cpp \
+    views/tree/treeview.cpp \
+    widgets/doc/basedoc.cpp \
     widgets/tools/statusbar.cpp \
     widgets/tools/toolbartop.cpp
 
 HEADERS += \
     application.h \
     mainwindow.h \
-    struct/tree/basesys.h \
-    struct/tree/device.h \
-    struct/tree/iodevice.h \
-    struct/tree/port.h \
-    struct/tree/server.h \
-    struct/treesysmodel.h \
-    widgets/doc/listeventsensor.h \
-    widgets/doc/listeventsystem.h \
-    widgets/doc/panel.h \
-    widgets/doc/treemapsensor.h \
-    widgets/doc/treeserverdevice.h \
+    struct/server_struct/basesys.h \
+    struct/server_struct/device.h \
+    struct/server_struct/iodevice.h \
+    struct/server_struct/port.h \
+    struct/server_struct/server.h \
+    struct/server_struct/serverconstructor.h \
+    struct/treemodel.h \
+    views/tree/treeview.h \
+    widgets/doc/basedoc.h \
     widgets/tools/statusbar.h \
     widgets/tools/toolbartop.h
 

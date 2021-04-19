@@ -1,16 +1,16 @@
-#ifndef TREESYSMODEL_H
-#define TREESYSMODEL_H
+#ifndef TREEMODEL_H
+#define TREEMODEL_H
 
 #include <QAbstractItemModel>
 #include <QObject>
 
-namespace SYSMOEDEL {
+namespace MOEDEL {
 
-class TreeSysModel : public QAbstractItemModel
+class TreeModel : public QAbstractItemModel
 {
     Q_OBJECT
 public:
-    TreeSysModel(QObject *parent = nullptr);
+    TreeModel(QObject *parent = nullptr);
 
     void setColumns(QStringList cols);
     void addItem(QObject *item, const QModelIndex &parentIdx);
@@ -25,7 +25,7 @@ public:
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
     QVariant headerData(int section, Qt::Orientation orientation, int role) const;
 
-    virtual ~TreeSysModel();
+    virtual ~TreeModel();
 
 private:
     QObject *_rootItem;
@@ -34,6 +34,6 @@ private:
 
 };
 
-} //namespace SYSMOEDL
+} //namespace MOEDEL
 
-#endif // TREESYSMODEL_H
+#endif // TREEMODEL_H

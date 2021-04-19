@@ -1,35 +1,34 @@
-#include "treesysmodel.h"
-
+#include "treemodel.h"
 #include <QPixmap>
 
-namespace SYSMOEDEL {
+namespace MOEDEL {
 
-TreeSysModel::TreeSysModel(QObject *paren)
+TreeModel::TreeModel(QObject *paren)
     :QAbstractItemModel(paren)
 {
     _rootItem = new QObject(this);
 }
 
-void TreeSysModel::setColumns(QStringList cols)
+void TreeModel::setColumns(QStringList cols)
 {
     _columns = cols;
 }
 
-void TreeSysModel::addItem(QObject *item, const QModelIndex &parentIdx)
+void TreeModel::addItem(QObject *item, const QModelIndex &parentIdx)
 {
     beginInsertRows(parentIdx, rowCount(parentIdx), rowCount(parentIdx));
     item->setParent(objByIndex(parentIdx));
     endInsertRows();
 }
 
-QModelIndex TreeSysModel::index(int row, int column, const QModelIndex &parent) const
+QModelIndex TreeModel::index(int row, int column, const QModelIndex &parent) const
 {
     if(!hasIndex(row, column, parent)) return QModelIndex();
     QObject *parentObj = objByIndex(parent);
     return createIndex(row, column, parentObj->children().at(row));
 }
 
-QModelIndex TreeSysModel::parent(const QModelIndex &child) const
+QModelIndex TreeModel::parent(const QModelIndex &child) const
 {
     QObject *childObj = objByIndex(child);
     QObject *parentObj = childObj->parent();
@@ -39,18 +38,18 @@ QModelIndex TreeSysModel::parent(const QModelIndex &child) const
     return createIndex(row, 0, parentObj);
 }
 
-int TreeSysModel::rowCount(const QModelIndex &parent) const
+int TreeModel::rowCount(const QModelIndex &parent) const
 {
     return objByIndex(parent)->children().count();
 }
 
-int TreeSysModel::columnCount(const QModelIndex &parent) const
+int TreeModel::columnCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent)
     return _columns.count();
 }
 
-QVariant TreeSysModel::data(const QModelIndex &index, int role) const
+QVariant TreeModel::data(const QModelIndex &index, int role) const
 {
     if(!index.isValid()) return QVariant();
     switch (role)
@@ -72,22 +71,22 @@ QVariant TreeSysModel::data(const QModelIndex &index, int role) const
     }
 }
 
-QVariant TreeSysModel::headerData(int section, Qt::Orientation orientation, int role) const
+QVariant TreeModel::headerData(int section, Qt::Orientation orientation, int role) const
 {
     if(orientation == Qt::Horizontal && role == Qt::DisplayRole)
         return _columns.at(section);
     return QVariant();
 }
 
-TreeSysModel::~TreeSysModel()
+TreeModel::~TreeModel()
 {
     delete _rootItem;
 }
 
-QObject *TreeSysModel::objByIndex(const QModelIndex &index) const
+QObject *TreeModel::objByIndex(const QModelIndex &index) const
 {
     if(!index.isValid()) return _rootItem;
     return static_cast<QObject*>(index.internalPointer());
 }
 
-} //namespace SYSMOEDL
+} //namespace MOEDEL

@@ -1,10 +1,10 @@
-#include "panel.h"
+#include "basedoc.h"
 #include <QDebug>
 #include <QStyle>
 
 namespace DOCWIDGETS {
 
-Panel::Panel(const QString &namePanel, QWidget *parent)
+BaseDocWidget::BaseDocWidget(const QString &namePanel, QWidget *parent)
     :QDockWidget(parent)
 {
     setWindowTitle(namePanel);
@@ -12,7 +12,7 @@ Panel::Panel(const QString &namePanel, QWidget *parent)
 
 }
 
-Panel::~Panel()
+BaseDocWidget::~BaseDocWidget()
 {
 
 }

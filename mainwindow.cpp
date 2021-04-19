@@ -7,21 +7,24 @@ MainWindow::MainWindow(QWidget *parent)
     setWindowTitle(tr("State monitor"));
     createDocWidjets(); //Create doc widgets
     createToolsWidgets(); //Create tools widgets
+    serverDataModel = new S_CONSTRUCTOR::ServerConstructor(this);
 }
 
 void MainWindow::createDocWidjets()
-{
-    messageSensorList = new DOCWIDGETS::ListEventSensor(tr("Sensor log"), this);
-    messageSystemList = new DOCWIDGETS::ListEventSystem(tr("System log"),this);
-    treeMapSensor = new DOCWIDGETS::TreeMapSensor(tr("Maps/Sensors"),this);
-    treeServerDev = new DOCWIDGETS::TreeServerDevice(tr("Connections/Devices"),this);
 
-    addDockWidget(Qt::LeftDockWidgetArea, treeMapSensor);
-    addDockWidget(Qt::LeftDockWidgetArea, treeServerDev);
-    tabifyDockWidget(treeMapSensor,treeServerDev);
-    addDockWidget(Qt::LeftDockWidgetArea, messageSensorList);
-    addDockWidget(Qt::LeftDockWidgetArea, messageSystemList);
-    tabifyDockWidget(messageSensorList,messageSystemList);
+{
+    sensorTree = new DOCWIDGETS::BaseDocWidget(tr("Sensor log"), this);
+    serverTree = new DOCWIDGETS::BaseDocWidget(tr("System log"),this);
+    sensorMessageList = new DOCWIDGETS::BaseDocWidget(tr("Maps/Sensors"),this);
+    serverMessageList = new DOCWIDGETS::BaseDocWidget(tr("Server/Devices"),this);
+
+    addDockWidget(Qt::LeftDockWidgetArea, sensorMessageList);
+    addDockWidget(Qt::LeftDockWidgetArea, serverMessageList);
+    tabifyDockWidget(sensorMessageList,serverMessageList);
+
+    addDockWidget(Qt::LeftDockWidgetArea, sensorTree);
+    addDockWidget(Qt::LeftDockWidgetArea, serverTree);
+    tabifyDockWidget(sensorTree,serverTree);
 }
 
 void MainWindow::createToolsWidgets()
@@ -34,6 +37,7 @@ void MainWindow::createToolsWidgets()
 
 MainWindow::~MainWindow()
 {
+
 }
 
 } //namespace APP

@@ -19,6 +19,7 @@ SOURCES += \
     struct/server_struct/server.cpp \
     struct/server_struct/serverconstructor.cpp \
     struct/treemodel.cpp \
+    views/maps/viewmap.cpp \
     views/tree/treeview.cpp \
     widgets/doc/basedoc.cpp \
     widgets/tools/statusbar.cpp \
@@ -34,10 +35,13 @@ HEADERS += \
     struct/server_struct/server.h \
     struct/server_struct/serverconstructor.h \
     struct/treemodel.h \
+    views/maps/viewmap.h \
     views/tree/treeview.h \
     widgets/doc/basedoc.h \
     widgets/tools/statusbar.h \
     widgets/tools/toolbartop.h
+
+TARGET = StateMonitor
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

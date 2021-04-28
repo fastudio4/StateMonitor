@@ -7,6 +7,7 @@
 #include "widgets/tools/statusbar.h"
 #include "widgets/tools/toolbartop.h"
 #include "struct/server_struct/serverconstructor.h"
+#include "views/maps/viewmap.h"
 
 namespace APP {
 
@@ -35,6 +36,9 @@ private:
     /* Fill model server */
 
     S_CONSTRUCTOR::ServerConstructor *serverDataModel;
+
+    /* Central widget */
+    ViewMap *mapView;
 
 
 

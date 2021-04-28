@@ -8,6 +8,8 @@ MainWindow::MainWindow(QWidget *parent)
     createDocWidjets(); //Create doc widgets
     createToolsWidgets(); //Create tools widgets
     serverDataModel = new S_CONSTRUCTOR::ServerConstructor(this);
+    mapView = new ViewMap(this);
+    setCentralWidget(mapView);
 }
 
 void MainWindow::createDocWidjets()
